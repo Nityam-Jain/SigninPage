@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+     <div class="header-box">
+    <h2>Sign in</h2>
+    <div class="social-icons"> 
+      <i class="ri-facebook-box-fill"></i>
+      <i class="ri-github-fill"></i>
+      <i class="ri-google-fill"></i>
+    </div>
+  </div>
+     <form method="post">
+    <input type="text" name="firstName" placeholder="First Name">
+    <input type="text" name="lastName" placeholder="Last Name">
+    <input type="email" name="email" placeholder="Email (e.g. yourname@gmail.com)">
+    
+     <div class="password-field">
+          <input type="password" name="password" id="password" placeholder="Password (min 8 characters)">
+          <i class="ri-eye-off-line" id="togglePassword"></i>
+     </div>
+
+    <input type="text" name="mobile" placeholder="Mobile Number (10 digits)">
+    <input type="date" name="dos" id="dos">
+  
+  <div class="remember">
+    <input type="checkbox" id="remember" />
+    <label for="remember">Remember me</label>
+  </div>
+  
+  <button type="submit" class="btn">SIGN IN</button>
+</form>
+
+      <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+    <footer class="footer">
+  <div class="footer-left">
+    © 2025, made with <span class="heart">♥</span> by <strong>Creative Tim</strong> for a better web.
+  </div>
+  <div class="footer-right">
+    <a href="#">Creative Tim</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">License</a>
+  </div>
+</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
