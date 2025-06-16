@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #7e8ea0, #6a6f7a);
+background: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffffff);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -138,7 +138,7 @@ form input {
   width: 100%;
   padding: 10px 40px;
   background-color: transparent;
-  color: white;
+  color: black;
   font-size: 17px;
   display: flex;
   justify-content: space-between;
@@ -148,14 +148,14 @@ form input {
 }
 
 .footer a {
-  color: white;
+  color: black;
   margin-left: 16px;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #add8e6;
+  color: darkmagenta;
 }
 
 .heart {

@@ -1,13 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector("form");
- 
- const dateInput = document.getElementById("dos");
+
+  const firstNameInput = form.querySelector("input[name='firstName']");
+  const lastNameInput = form.querySelector("input[name='lastName']");
+  const dateInput = document.getElementById("dos");
+  const togglePassword = document.getElementById("togglePassword");
+  const passwordInput = document.getElementById("password");
+  const mobileInput = form.querySelector("input[name='mobile']");
+
   const today = new Date().toISOString().split('T')[0];
   dateInput.setAttribute("max", today);
 
-  const togglePassword = document.getElementById("togglePassword");
-  const passwordInput = document.getElementById("password");
-
+  // Pass Eye 
   togglePassword.addEventListener("click", () => {
     passwordInput.type = "text";
     togglePassword.className = "ri-eye-line";
@@ -15,22 +19,52 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       passwordInput.type = "password";
       togglePassword.className = "ri-eye-off-line";
-    }, 1000); 
+    }, 1000);
   });
 
+  // Mobile only allow num digit
+  mobileInput.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, ""); 
+  });
+
+  // Time + Max Length validation
+  let firstNameTimer, lastNameTimer;
+
+  firstNameInput.addEventListener("input", () => {
+    clearTimeout(firstNameTimer);
+    firstNameTimer = setTimeout(() => {
+      const value = firstNameInput.value.trim();
+      if (value.length > 0 && value.length < 2) {
+        alert("First name must be at least 2 characters.");
+      } else if (value.length > 10) {
+        alert("First name must not exceed 10 characters.");
+      }
+    }, 3000);
+  });
+
+  lastNameInput.addEventListener("input", () => {
+    clearTimeout(lastNameTimer);
+    lastNameTimer = setTimeout(() => {
+      const value = lastNameInput.value.trim();
+      if (value.length > 0 && value.length < 2) {
+        alert("Last name must be at least 2 characters.");
+      } else if (value.length > 10) {
+        alert("Last name must not exceed 10 characters.");
+      }
+    }, 3000);
+  });
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
-    const firstName = form.querySelector("input[name='firstName']").value.trim();
-    const lastName = form.querySelector("input[name='lastName']").value.trim();
+    const firstName = firstNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
     const email = form.querySelector("input[name='email']").value.trim();
     const password = passwordInput.value.trim();
-    const mobile = form.querySelector("input[name='mobile']").value.trim();
+    const mobile = mobileInput.value.trim();
     const dos = dateInput.value;
     const remember = form.querySelector("input[type='checkbox']").checked;
 
-    const today = new Date().toISOString().split('T')[0];
     const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
     const mobilePattern = /^\d{10,}$/;
 
@@ -69,10 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    
     alert("Form submitted successfully!");
-
-    
     form.reset();
   });
 });
